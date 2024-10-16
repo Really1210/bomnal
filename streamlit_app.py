@@ -10,3 +10,4 @@ image_url = 'https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.psta
 
 # st.image()에 이미지 URL 전달 및 캡션 추가
 st.image(image_url, caption='봄날의꽃', use_column_width=True)
+
