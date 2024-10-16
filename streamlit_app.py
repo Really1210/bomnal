@@ -6,4 +6,4 @@ st.write(
 )
 
 
-st.image(image_url, caption='https://pcmap.place.naver.com/place/1334572327/photo?entry=pll&from=map&fromNxList=true&fromPanelNum=2&timestamp=202410161652#', use_column_width=True)
+st.image(image_url, caption='https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20240613_190%2F1718262533822XFxk4_JPEG%2FKakaoTalk_20240613_160008244.jpg', use_column_width=True)
