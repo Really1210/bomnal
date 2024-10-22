@@ -21,13 +21,13 @@ def get_instagram_post(embed_url, access_token):
     api_url = f"https://graph.facebook.com/v12.0/instagram_oembed?url={embed_url}&access_token={access_token}&omitscript=true"
     try:
         response = requests.get(api_url)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            st.error("Instagram API 요청 실패")
-            return None
+        response.raise_for_status()  # 상태 코드가 200이 아니면 예외를 발생시킴
+        return response.json()
+    except requests.exceptions.HTTPError as http_err:
+        st.error(f"HTTP 오류 발생: {http_err}")
+        return None
     except requests.exceptions.RequestException as e:
-        st.error(f"API 요청 중 오류가 발생했습니다: {e}")
+        st.error(f"요청 중 오류가 발생했습니다: {e}")
         return None
 
 # 스트림릿 앱 설정
