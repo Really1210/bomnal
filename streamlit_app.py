@@ -23,7 +23,7 @@ def get_instagram_media(user_id, access_token):
     if response.status_code == 200:
         return response.json().get('data')
     else:
-        st.error('Instagram API 요청 실패')
+        st.error('Instagram API 요청 실패_1')
         return []
 
 # 스트림릿 앱
