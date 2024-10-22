@@ -19,7 +19,7 @@ user_id = '1505713830311872'
 
 # Instagram 사용자 미디어 가져오기
 def get_instagram_media(user_id, access_token):
-    url = f'https://graph.instagram.com/{user_id}/media?fields=id,caption,media_type,media_url,permalink&access_token={access_token}'
+    url = f'https://graph.instagram.com/{bomnal.flower}/media?fields=id,caption,media_type,media_url,permalink&access_token={access_token}'
     response = requests.get(url)
     if response.status_code == 200:
         return response.json().get('data')
