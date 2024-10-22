@@ -16,9 +16,9 @@ st.image(image_url, caption='봄날의꽃', use_column_width=True)
 st.image(image_url_1, caption='봄날의꽃', use_column_width=True)
 
 # Instagram oEmbed API를 사용하여 게시물 정보 가져오기
-def get_instagram_post(embed_url):
+def get_instagram_post(embed_url, access_token):
     # oEmbed API에 대한 요청 URL 구성
-    api_url = f"https://graph.facebook.com/v12.0/instagram_oembed?url={embed_url}&omitscript=true"
+    api_url = f"https://graph.facebook.com/v12.0/instagram_oembed?url={embed_url}&access_token={access_token}&omitscript=true"
     try:
         response = requests.get(api_url)
         if response.status_code == 200:
@@ -33,10 +33,12 @@ def get_instagram_post(embed_url):
 # 스트림릿 앱 설정
 st.title("Instagram 게시물 보기")
 
-# 고정된 Instagram 게시물 URL
-embed_url = "https://www.instagram.com/bomnal.flower/"
+# Instagram Access Token과 User ID
+access_token = "638bbd582151fbd4386ff7e66c2bc688"  # Instagram에서 발급받은 Access Token
+embed_url = "https://www.instagram.com/bomnal.flower/"  # 고정된 Instagram 게시물 URL
 
-post_data = get_instagram_post(embed_url)
+# 게시물 가져오기
+post_data = get_instagram_post(embed_url, access_token)
 
 if post_data:
     st.subheader("게시물 미리보기")
